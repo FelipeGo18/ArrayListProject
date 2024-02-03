@@ -29,7 +29,8 @@ public class NewMain {
         
         c = a + b;
         
-        System.out.println(c);
+        System.out.println(c+a);
+        System.out.println(c+1);
         
     }
     
