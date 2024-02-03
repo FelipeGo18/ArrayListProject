@@ -59,4 +59,39 @@ public class Lista {
         return false;
     }
 
+    public String obtenerElementoEnPosicion(int posicion, int cont) {
+        if (posicion >= 0 && posicion < cont) {
+            return arreglo[posicion];
+        } else {
+            return null;
+        }
+    }
+
+    public boolean verificarListaVacia(int cont) {
+        for (int i = 0; i < cont; i++) {
+            if (arreglo[i].equals(" ")) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public int obtenerPrimeraPosicion(String elemento, int cont) {
+        for (int i = 0; i < cont; i++) {
+            if (arreglo[i].equals(elemento)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public int obtenerUltimaPosicion(String elemento, int cont) {
+        for (int i = cont - 1; i >= 0; i--) {
+            if (arreglo[i].equals(elemento)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
 }

@@ -111,15 +111,49 @@ public class NewMain1 {
                     break;
 
                 case 7:
+
+                    System.out.print("Ingrese la posicion para obtener el elemento: ");
+                    int posicionConsulta = sc.nextInt();
+
+                    String elementoEnPosicion = ls.obtenerElementoEnPosicion(posicionConsulta, cont);
+                    if (elementoEnPosicion != null) {
+                        System.out.println("El elemento en la posicion " + posicionConsulta + " es: " + elementoEnPosicion);
+                    } else {
+                        System.out.println("Posicion no valida o el elemento no esta presente en la lista.");
+                    }
                     break;
 
                 case 8:
+
+                    System.out.print("Ingrese el elemento para obtener la primera posicion: ");
+                    elemento = sc.next();
+
+                    int primeraPosicion = ls.obtenerPrimeraPosicion(elemento, cont);
+                    if (primeraPosicion != -1) {
+                        System.out.println("La primera aparicion de " + elemento + " esta en la posicion: " + primeraPosicion);
+                    } else {
+                        System.out.println("El elemento " + elemento + " no esta presente en la lista.");
+                    }
                     break;
 
                 case 9:
+                    if (ls.verificarListaVacia(cont)) {
+                        System.out.println("la lista  esta vacia.");
+                    } else {
+                        System.out.println("la lista no esta vacia");
+                    }
                     break;
 
                 case 10:
+                    System.out.print("Ingrese el elemento para obtener la ultima posicion: ");
+                    elemento = sc.next();
+
+                    int ultimaPosicion = ls.obtenerUltimaPosicion(elemento, cont);
+                    if (ultimaPosicion != -1) {
+                        System.out.println("La ultima posicion de " + elemento + " es: " + ultimaPosicion);
+                    } else {
+                        System.out.println("El elemento " + elemento + " no esta presente en la lista.");
+                    }
                     break;
 
                 case 11:
