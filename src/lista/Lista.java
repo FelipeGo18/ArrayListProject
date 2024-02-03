@@ -1,17 +1,27 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package lista;
 
-/**
- *
- *
- */
 public class Lista {
+    
+    private String[] arreglo;
 
-    public void crearreglo(int index) {
-        int[] arreglo = new int[index];
+    public Lista(int index) {
+        arreglo = crearArreglo(index);
+    }
+ 
+    public String[] crearArreglo(int index) {
+        return new String[index];
     }
     
+    public void llenarArreglo(String elemento, int cont){
+        arreglo[cont] = elemento;
+    }
+    
+    public String mostrarArreglo(int cont){
+        String salida = "";
+        for (int i = 0; i < cont; i++) {
+            salida += " | " + arreglo [i] + " | "; 
+        }  
+        return salida;
+    }
 }
