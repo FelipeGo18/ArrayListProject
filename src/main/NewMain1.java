@@ -30,10 +30,11 @@ public class NewMain1 {
             elemento = sc.next();
 
             ls.llenarArreglo(elemento, cont);
-
+            if (cont == index - 1) {
+                break;
+            }
             System.out.print("Quiere agregar otro elemento? (S/N): ");
             opcion2 = sc.next();
-
             cont++;
         } while (opcion2.equalsIgnoreCase("S"));
 
@@ -86,15 +87,27 @@ public class NewMain1 {
                     elemento = sc.next();
 
                     ls.agregarEnPosicion(elemento, posicion, cont);
+
+                    cont++;
                     break;
 
                 case 4:
                     break;
 
                 case 5:
+                    ls.limpiarLista(index);
                     break;
 
                 case 6:
+
+                    System.out.print("Ingrese el elemento que desea verificar: ");
+                    elemento = sc.next();
+
+                    if (ls.verificarElemento(elemento, cont)) {
+                        System.out.println("El elemento " + elemento + " esta presente en la lista.");
+                    } else {
+                        System.out.println("El elemento " + elemento + " no está presente en la lista.");
+                    }
                     break;
 
                 case 7:

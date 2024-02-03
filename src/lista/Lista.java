@@ -36,9 +36,23 @@ public class Lista {
                 arreglo[i] = arreglo[i - 1];
             }
             arreglo[posicion] = elemento;
-            cont++;
 
         }
+    }
+
+    public void limpiarLista(int index) {
+        for (int i = 0; i < index; i++) {
+            arreglo[i] = " ";
+        }
+    }
+
+    public boolean verificarElemento(String elemento, int cont) {
+        for (int i = 0; i < cont; i++) {
+            if (arreglo[i].equals(elemento)) {
+                return true; 
+            }
+        }
+        return false; 
     }
 
 }
