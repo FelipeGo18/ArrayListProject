@@ -70,9 +70,22 @@ public class NewMain1 {
                     break;
 
                 case 2:
+                    System.out.print("Ingrese el elemento a agregar al final de la lista: ");
+                    elemento = sc.next();
+                    ls.agregarAlFinal(elemento, cont);
+                    cont++;
+                    System.out.println("Elemento agregado al final de la lista.");
                     break;
 
                 case 3:
+
+                    System.out.print("Ingrese la posicion donde desea agregar el elemento: ");
+                    int posicion = sc.nextInt();
+
+                    System.out.print("Ingrese el nuevo elemento para agregar en la posicion " + posicion + ": ");
+                    elemento = sc.next();
+
+                    ls.agregarEnPosicion(elemento, posicion, cont);
                     break;
 
                 case 4:
