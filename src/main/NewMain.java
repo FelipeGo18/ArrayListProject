@@ -14,7 +14,9 @@ public class NewMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        int variableDePrueba;
         System.out.println("version 2");
+        
     }
     
 }
