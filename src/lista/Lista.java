@@ -6,9 +6,12 @@ package lista;
 
 /**
  *
- * @author gonza
+ *
  */
 public class Lista {
-     
-    //Este comentario es una prueba
+
+    public void crearreglo(int index) {
+        int[] arreglo = new int[index];
+    }
+    
 }
