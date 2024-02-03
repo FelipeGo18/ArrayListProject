@@ -30,11 +30,15 @@ public class Lista {
         }
     }
 
+    private void moverPosicionDerecha(int cont, int posicion) {
+        for (int i = cont; i > posicion; i--) {
+            arreglo[i] = arreglo[i - 1];
+        }
+    }
+
     public void agregarEnPosicion(String elemento, int posicion, int cont) {
         if (posicion >= 0 && posicion < cont) {
-            for (int i = cont; i > posicion; i--) {
-                arreglo[i] = arreglo[i - 1];
-            }
+            moverPosicionDerecha(cont, posicion);
             arreglo[posicion] = elemento;
 
         }
@@ -49,10 +53,10 @@ public class Lista {
     public boolean verificarElemento(String elemento, int cont) {
         for (int i = 0; i < cont; i++) {
             if (arreglo[i].equals(elemento)) {
-                return true; 
+                return true;
             }
         }
-        return false; 
+        return false;
     }
 
 }
