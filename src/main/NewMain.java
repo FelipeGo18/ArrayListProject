@@ -4,6 +4,8 @@
  */
 package main;
 
+import java.util.Scanner;
+
 /**
  *
  * @author gonza
@@ -14,8 +16,20 @@ public class NewMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        int variableDePrueba;
-        System.out.println("version 2");
+        Scanner sc = new Scanner(System.in);
+        int a;
+        int b;
+        int c;
+        
+        System.out.print("Ingrese un numero");
+        a = sc.nextInt();
+        
+        System.out.print("Ingrese un numero");
+        b = sc.nextInt();
+        
+        c = a + b;
+        
+        System.out.println(c);
         
     }
     
