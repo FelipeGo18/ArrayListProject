@@ -94,4 +94,72 @@ public class Lista {
         return -1;
     }
 
+    public void eliminarEnPosicion(int posicion, int cont) {
+    if (posicion >= 0 && posicion < cont) {
+        for (int i = posicion; i < cont - 1; i++) {
+            arreglo[i] = arreglo[i + 1];
+        }
+          arreglo[cont - 1] = " ";
+        cont--; 
+        
+    }
+}
+
+public void eliminarPrimeraAparicion(String elemento, int cont) {
+    int posicion = -1;
+
+    for (int i = 0; i < cont; i++) {
+        if (arreglo[i].equals(elemento)) {
+            posicion = i;
+            break; 
+        }
+    }
+    if (posicion != -1) {
+        eliminarEnPosicion(posicion, cont);
+    } 
+}
+public void reemplazarElemento(String elementoViejo, String elementoNuevo, int cont) {
+    for (int i = 0; i < cont; i++) {
+        if (arreglo[i].equals(elementoViejo)) {
+            arreglo[i] = elementoNuevo;
+            return; 
+        }
+    }
+
+}
+
+public String[] crearSublista(int inicio, int fin, int cont) {
+    if (inicio >= 0 && inicio < cont && fin >= 0 && fin < cont && inicio <= fin) {
+        String[] sublista = new String[fin - inicio + 1];
+        int sublistaIndex = 0;
+
+        for (int i = inicio; i <= fin; i++) {
+            sublista[sublistaIndex++] = arreglo[i];
+        }
+
+        return sublista;
+    } else {
+        return null; 
+    }
+}
+
+public void disminuirTamanioLista(int cantidad, int cont) {
+    if (cantidad >= 0 && cantidad <= cont) {
+        for (int i = 0; i < cantidad; i++) {
+            arreglo[cont - 1 - i] = "";
+        }         
+    } 
+}
+
+public void aumentarTamanioLista(int cantidad, int cont) {
+    if (cantidad > 0) {
+        String[] nuevoArreglo = new String[cont + cantidad];
+
+        for (int i = 0; i < cont; i++) {
+            nuevoArreglo[i] = arreglo[i];
+        }
+        arreglo = nuevoArreglo;
+    }
+}
+
 }

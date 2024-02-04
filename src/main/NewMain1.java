@@ -1,5 +1,6 @@
 package main;
 
+import java.util.Arrays;
 import java.util.Scanner;
 import lista.Lista;
 
@@ -57,7 +58,7 @@ public class NewMain1 {
                            11. Eliminar un elemento en una posicion de la lista
                            12. Eliminar la priemara aparicion de un elemento de la lista
                            13. Reemplazar un elemento de la lista
-                           14. Numero de elemetos en la lista
+                           14. Numero de elementos en la lista
                            15. Hacer una sublista
                            16. Disminuir tamanio de la lista
                            17. Aumenta el tamanio de la lista
@@ -157,25 +158,62 @@ public class NewMain1 {
                     break;
 
                 case 11:
+                    System.out.print("Ingrese la posicion para eliminar el elemento: ");
+                    int posicionEliminar = sc.nextInt();
+                    ls.eliminarEnPosicion(posicionEliminar, cont);
+                    cont--;
                     break;
 
                 case 12:
+                    System.out.print("Ingrese el elemento para eliminar la primera aparición: ");
+                    elemento = sc.next();
+                    ls.eliminarPrimeraAparicion(elemento, cont);
                     break;
 
                 case 13:
+                    System.out.print("Ingrese el elemento que desea reemplazar: ");
+                    String elementoViejo = sc.next();
+
+                    System.out.print("Ingrese el nuevo elemento: ");
+                    String elementoNuevo = sc.next();
+
+                    ls.reemplazarElemento(elementoViejo, elementoNuevo, cont);
                     break;
 
                 case 14:
+                    int numeroElementos = cont;
+                    System.out.println("Número de elementos en la lista: " + numeroElementos);
                     break;
 
                 case 15:
+                    System.out.print("Ingrese el indice de inicio para la sublista: ");
+                    int inicioSublista = sc.nextInt();
+
+                    System.out.print("Ingrese el indice de fin para la sublista: ");
+                    int finSublista = sc.nextInt();
+
+                    String[] sublista = ls.crearSublista(inicioSublista, finSublista, cont);
+                    if (sublista != null) {
+                        System.out.println("Sublista creada correctamente: " + Arrays.toString(sublista));
+                    } else {
+                        System.out.println("indices de sublista no válidos.");
+                    }
                     break;
 
                 case 16:
+                    System.out.print("Ingrese la cantidad de elementos a eliminar: ");
+                    int cantidadEliminar = sc.nextInt();
+                    ls.disminuirTamanioLista(cantidadEliminar, cont);
+                    cont -= cantidadEliminar;
                     break;
                 case 17:
+                    System.out.print("Ingrese la cantidad de elementos a agregar: ");
+                    int cantidadAgregar = sc.nextInt();
+                    ls.aumentarTamanioLista(cantidadAgregar, cont);
+                    cont += cantidadAgregar;
                     break;
                 case 18:
+                    System.exit(0);
                     break;
 
             }
