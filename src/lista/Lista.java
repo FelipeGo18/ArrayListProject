@@ -8,7 +8,7 @@ public class Lista {
         arreglo = crearArreglo(index);
     }
 
-    public String[] crearArreglo(int index) {
+    public final String[] crearArreglo(int index) {
         return new String[index];
     }
 
@@ -151,15 +151,15 @@ public void disminuirTamanioLista(int cantidad, int cont) {
     } 
 }
 
-public void aumentarTamanioLista(int cantidad, int cont) {
-    if (cantidad > 0) {
-        String[] nuevoArreglo = new String[cont + cantidad];
+    public void aumentarTamanioLista(int cantidad, int cont) {
+        if (cantidad > 0) {
+            String[] nuevoArreglo = new String[cont + cantidad];
 
-        for (int i = 0; i < cont; i++) {
-            nuevoArreglo[i] = arreglo[i];
+            for (int i = 0; i < cont; i++) {
+                nuevoArreglo[i] = arreglo[i];
+            }
+            arreglo = nuevoArreglo;
         }
-        arreglo = nuevoArreglo;
     }
-}
 
 }

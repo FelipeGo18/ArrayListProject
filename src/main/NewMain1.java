@@ -17,7 +17,7 @@ public class NewMain1 {
         Scanner sc = new Scanner(System.in);
         int opcion = 0;
         int cont = 0;
-        String opcion2;
+        String opcion2 = "";
 
         System.out.print("Ingrese el tamanio del arreglo: ");
         int index = sc.nextInt();
@@ -25,7 +25,7 @@ public class NewMain1 {
 
         ls.crearArreglo(index);
 
-        String elemento = null;
+        String elemento = "";
         do {
             System.out.print("Ingrese un elemento: ");
             elemento = sc.next();
@@ -34,10 +34,26 @@ public class NewMain1 {
             if (cont == index - 1) {
                 break;
             }
-            System.out.print("Quiere agregar otro elemento? (S/N): ");
-            opcion2 = sc.next();
+
+            
+            boolean opcionValida = false;
+            do {
+                try {
+                    System.out.print("Quiere agregar otro elemento? (S/N): ");
+                    opcion2 = sc.next();
+
+                    if (opcion2.equalsIgnoreCase("s") || opcion2.equalsIgnoreCase("n")) {
+                        opcionValida = true;
+                    } else {
+                        throw new IllegalArgumentException("Opcion no válida. Ingrese 'S' o 'N'.");
+                    }
+                } catch (IllegalArgumentException e) {
+                    System.out.println(e.getMessage());
+                }
+            } while (!opcionValida);
+
             cont++;
-        } while (opcion2.equalsIgnoreCase("S"));
+        } while (opcion2.equalsIgnoreCase("s"));
 
         while (true) {
 
