@@ -18,21 +18,25 @@ public class Lista {
 
     public String mostrarArreglo(int cont) {
         String salida = "";
-        for (int i = 0; i < cont; i++) {
-            salida += " | " + arreglo[i] + " | ";
+        for (int i = 0; i <= cont; i++) {
+            salida += " | " + arreglo[i] ;
         }
         return salida;
     }
 
-    public void agregarAlFinal(String nuevoElemento, int cont) {
-        if (cont < arreglo.length) {
+    public boolean agregarAlFinal(String nuevoElemento, int cont) {
             arreglo[cont] = nuevoElemento;
-        }
+        return true;
     }
 
     private void moverPosicionDerecha(int cont, int posicion) {
         for (int i = cont; i > posicion; i--) {
             arreglo[i] = arreglo[i - 1];
+        }
+    }
+    private void moverPosicionIzquierda(int cont, int posicion){
+        for (int i = posicion; i < cont - 1; i++) {
+            arreglo[i] = arreglo[i + 1];
         }
     }
 
@@ -46,7 +50,7 @@ public class Lista {
 
     public void limpiarLista(int index) {
         for (int i = 0; i < index; i++) {
-            arreglo[i] = " ";
+            arreglo[i] = "";
         }
     }
 
@@ -94,15 +98,13 @@ public class Lista {
         return -1;
     }
 
-    public void eliminarEnPosicion(int posicion, int cont) {
-    if (posicion >= 0 && posicion < cont) {
-        for (int i = posicion; i < cont - 1; i++) {
-            arreglo[i] = arreglo[i + 1];
-        }
-          arreglo[cont - 1] = " ";
-        cont--; 
-        
-    }
+    public String eliminarEnPosicion(int posicion, int cont) {
+        String elementoEliminado;
+        elementoEliminado = arreglo[posicion];
+        moverPosicionIzquierda(posicion, cont);
+        arreglo[cont] = "";
+        //cont--; 
+    return elementoEliminado;
 }
 
 public void eliminarPrimeraAparicion(String elemento, int cont) {

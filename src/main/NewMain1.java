@@ -31,11 +31,10 @@ public class NewMain1 {
             elemento = sc.next();
 
             ls.llenarArreglo(elemento, cont);
-            if (cont == index - 1) {
+            if (cont == index - 1) { //condicion para sacar del caso si está lleno el arreglo
                 break;
             }
 
-            
             boolean opcionValida = false;
             do {
                 try {
@@ -45,7 +44,7 @@ public class NewMain1 {
                     if (opcion2.equalsIgnoreCase("s") || opcion2.equalsIgnoreCase("n")) {
                         opcionValida = true;
                     } else {
-                        throw new IllegalArgumentException("Opcion no válida. Ingrese 'S' o 'N'.");
+                        throw new IllegalArgumentException("Opcion no valida. Ingrese 'S' o 'N'.");
                     }
                 } catch (IllegalArgumentException e) {
                     System.out.println(e.getMessage());
@@ -88,11 +87,23 @@ public class NewMain1 {
                     break;
 
                 case 2:
-                    System.out.print("Ingrese el elemento a agregar al final de la lista: ");
-                    elemento = sc.next();
-                    ls.agregarAlFinal(elemento, cont);
+
+                    try {
+                        if (cont == index - 1) {
+                            throw new IllegalArgumentException("La lista esta llena");
+                        } else {
+                            System.out.print("Ingrese el elemento a agregar al final de la lista: ");
+                            elemento = sc.next();
+
+                            if (ls.agregarAlFinal(elemento, cont)) {
+                                System.out.println("Se agrego el elemento");
+                            }
+                        }
+                    } catch (IllegalArgumentException e) {
+                        System.out.println(e.getMessage());
+                    }
+
                     cont++;
-                    System.out.println("Elemento agregado al final de la lista.");
                     break;
 
                 case 3:
@@ -176,7 +187,8 @@ public class NewMain1 {
                 case 11:
                     System.out.print("Ingrese la posicion para eliminar el elemento: ");
                     int posicionEliminar = sc.nextInt();
-                    ls.eliminarEnPosicion(posicionEliminar, cont);
+                    posicion = posicionEliminar - 1;
+                    System.out.println("se ha eliminado el elemento: " + ls.eliminarEnPosicion(posicion, cont));
                     cont--;
                     break;
 
