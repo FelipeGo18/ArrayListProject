@@ -52,6 +52,21 @@ public class Lista {
             arreglo[i] = "";
         }
     }
+    
+    public boolean addAll(String[] elementos, int cont) {
+  
+        int nuevoTamanio = cont + elementos.length; 
+
+        if (nuevoTamanio > arreglo.length) {
+            return false;
+        }
+
+        for (int i = cont, j = 0; i < nuevoTamanio; i++, j++) {
+            arreglo[i] = elementos[j];
+        }
+
+        return true; 
+    }
 
     public boolean verificarElemento(String elemento, int cont) {
         for (int i = 0; i < cont; i++) {
