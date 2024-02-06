@@ -34,12 +34,11 @@ public class NewMain1 {
             if (cont == index - 1) { //condicion para sacar del caso si está lleno el arreglo
                 cont++;
                 break;
-                
+
             }
 
             cont++;
-            System.out.println(cont);
-            
+
             boolean opcionValida = false;
 
             do {
@@ -89,12 +88,14 @@ public class NewMain1 {
             switch (opcion) {
                 case 1:
                     System.out.println(ls.mostrarArreglo(cont));
+                    System.out.println(index);
+                    System.out.println(cont);
                     break;
 
                 case 2:
 
                     try {
-                        if (cont == index - 1) {
+                        if (cont == index) {
                             throw new IllegalArgumentException("La lista esta llena");
                         } else {
                             System.out.print("Ingrese el elemento a agregar al final de la lista: ");
@@ -102,13 +103,13 @@ public class NewMain1 {
 
                             if (ls.agregarAlFinal(elemento, cont)) {
                                 System.out.println("Se agrego el elemento");
+                                cont++;
                             }
                         }
                     } catch (IllegalArgumentException e) {
                         System.out.println(e.getMessage());
                     }
 
-                    cont++;
                     break;
 
                 case 3:
@@ -125,11 +126,12 @@ public class NewMain1 {
                     break;
 
                 case 4:
-                    
+
                     break;
 
                 case 5:
                     ls.limpiarLista(index);
+                    cont = 0;
                     break;
 
                 case 6:
@@ -201,19 +203,18 @@ public class NewMain1 {
                     break;
 
                 case 12:
-           
+
                     System.out.print("Ingrese el elemento para eliminar la primera aparicion: ");
                     String elementoEliminar = sc.next();
                     String elementoEliminado = ls.eliminarPrimeraAparicion(elementoEliminar, cont);
 
                     if (elementoEliminado != null) {
                         System.out.println("Se ha eliminado el elemento: " + elementoEliminado);
-                        cont--; 
+                        cont--;
                     } else {
                         System.out.println("El elemento no se encontró en la lista.");
                     }
                     break;
-
 
                 case 13:
                     System.out.print("Ingrese el elemento que desea reemplazar: ");
@@ -236,7 +237,7 @@ public class NewMain1 {
 
                     System.out.print("Ingrese el indice de fin para la sublista: ");
                     int finSublista = sc.nextInt();
-                    
+
                     String[] sublista = ls.crearSublista(inicioSublista, finSublista, cont);
                     if (sublista != null) {
                         System.out.println("Sublista creada correctamente: " + Arrays.toString(sublista));
@@ -248,14 +249,20 @@ public class NewMain1 {
                 case 16:
                     System.out.print("Ingrese la cantidad de elementos a eliminar: ");
                     int cantidadEliminar = sc.nextInt();
-                    ls.disminuirTamanioLista(cantidadEliminar, cont);
+
+                    if (cont == index) {
                     cont -= cantidadEliminar;
+                        System.out.println("se uso");
+                    }
+                    
+                    index -= cantidadEliminar;
+
                     break;
                 case 17:
                     System.out.print("Ingrese la cantidad de elementos a agregar: ");
                     int cantidadAgregar = sc.nextInt();
                     ls.aumentarTamanioLista(cantidadAgregar, cont);
-                   
+                    cont += cantidadAgregar;
                     break;
                 case 18:
                     System.exit(0);

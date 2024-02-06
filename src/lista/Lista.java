@@ -8,8 +8,14 @@ public class Lista {
         arreglo = crearArreglo(index);
     }
 
-    public final String[] crearArreglo(int index) {
+    public String[] crearArreglo(int index) {
         return new String[index];
+    }
+    
+    private void moverPosicionDerecha(int cont, int posicion) {
+        for (int i = cont; i > posicion; i--) {
+            arreglo[i] = arreglo[i - 1];
+        }
     }
 
     public void llenarArreglo(String elemento, int cont) {
@@ -19,30 +25,26 @@ public class Lista {
     public String mostrarArreglo(int cont) {
         String salida = "| ";
         for (int i = 0; i < cont; i++) {
-            salida += arreglo[i] + " | " ;
+            salida += arreglo[i] + " | ";
         }
         return salida;
     }
 
     public boolean agregarAlFinal(String nuevoElemento, int cont) {
-            arreglo[cont] = nuevoElemento;
+        arreglo[cont] = nuevoElemento;
         return true;
     }
 
-    private void moverPosicionDerecha(int cont, int posicion) {
-        for (int i = cont; i > posicion; i--) {
-            arreglo[i] = arreglo[i - 1];
-        }
-    }
-    public void moverPosicionIzquierda(int cont, int posicion){
-        for (int i = posicion; i < cont-1; i++) {
+
+    public void moverPosicionIzquierda(int cont, int posicion) {
+        for (int i = posicion; i < cont - 1; i++) {
             arreglo[i] = arreglo[i + 1];
         }
     }
 
     public void agregarEnPosicion(String elemento, int posicion, int cont) {
-            moverPosicionDerecha(cont, posicion);
-            arreglo[posicion] = elemento;
+        moverPosicionDerecha(cont, posicion);
+        arreglo[posicion] = elemento;
     }
 
     public void limpiarLista(int index) {
@@ -70,7 +72,7 @@ public class Lista {
 
     public boolean verificarListaVacia(int cont) {
         for (int i = 0; i < cont; i++) {
-            if (arreglo[i].equals(" ")) {
+            if (arreglo[i].equals("")) {
                 return true;
             }
         }
@@ -99,78 +101,63 @@ public class Lista {
         String elementoEliminado;
         elementoEliminado = arreglo[posicion];
         moverPosicionIzquierda(posicion, cont);
-        
-    return elementoEliminado;
-}
-
-public String eliminarPrimeraAparicion(String elemento, int cont) {
-    int posicion = -1;
-
-    for (int i = 0; i < cont; i++) {
-        if (arreglo[i].equals(elemento)) {
-            posicion = i;
-            break; 
-        }
-    }
-
-    if (posicion != -1) {
-        
-        String elementoEliminado = arreglo[posicion];
-         moverPosicionIzquierda( cont,  posicion);
-        cont--;
 
         return elementoEliminado;
-    } else {
-        return null;
     }
-}
 
+    public String eliminarPrimeraAparicion(String elemento, int cont) {
+        int posicion = -1;
 
+        for (int i = 0; i < cont; i++) {
+            if (arreglo[i].equals(elemento)) {
+                posicion = i;
+                break;
+            }
+        }
 
-public void reemplazarElemento(String elementoViejo, String elementoNuevo, int cont) {
-    for (int i = 0; i < cont; i++) {
-        if (arreglo[i].equals(elementoViejo)) {
-            arreglo[i] = elementoNuevo;
-            return; 
+        if (posicion != -1) {
+
+            String elementoEliminado = arreglo[posicion];
+            moverPosicionIzquierda(cont, posicion);
+            cont--;
+
+            return elementoEliminado;
+        } else {
+            return null;
         }
     }
 
-}
-
-public int tamanio(int cont){
-    return cont;
-}
-        
-public String[] crearSublista(int inicio, int fin, int cont) {
-   
-        String[] sublista = new String[fin - inicio + 1];
-        int sublistaIndex = 0;
-
-        for (int i = inicio-1 ; i < fin; i++) {
-            sublista[sublistaIndex++] = arreglo[i];
+    public void reemplazarElemento(String elementoViejo, String elementoNuevo, int cont) {
+        for (int i = 0; i < cont; i++) {
+            if (arreglo[i].equals(elementoViejo)) {
+                arreglo[i] = elementoNuevo;
+                return;
+            }
         }
-        
-        return sublista;
-   
-}
 
-public void disminuirTamanioLista(int cantidad, int cont) {
-    if (cantidad >= 0 && cantidad <= cont) {
-        for (int i = 0; i < cantidad; i++) {
-            arreglo[cont - 1 - i] = "";
-        }         
-    } 
-}
+    }
+
+    public int tamanio(int cont) {
+        return cont;
+    }
+
+    public String[] crearSublista(int inicio, int fin, int cont) {
+            String[] sublista = new String[fin - inicio + 1];
+            int sublistaIndex = 0;
+
+            for (int i = inicio; i <= fin; i++) {
+                sublista[sublistaIndex++] = arreglo[i];
+            }
+            return sublista;
+    }
 
     public void aumentarTamanioLista(int cantidad, int cont) {
-        if (cantidad > 0) {
-            String[] nuevoArreglo = new String[cont + cantidad];
+        String[] nuevoArreglo = new String[cont + cantidad];
 
-            for (int i = 0; i < cont; i++) {
-                nuevoArreglo[i] = arreglo[i];
-            }
-            arreglo = nuevoArreglo;
+        for (int i = 0; i < cont; i++) {
+            nuevoArreglo[i] = arreglo[i];
         }
+        arreglo = nuevoArreglo;
     }
 
 }
