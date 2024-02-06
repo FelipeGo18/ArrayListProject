@@ -19,8 +19,27 @@ public class NewMain1 {
         int cont = 0;
         String opcion2 = "";
 
-        System.out.print("Ingrese el tamanio del arreglo: ");
-        int index = sc.nextInt();
+        int index = 0;
+        boolean inputValid = false;
+
+        while (!inputValid) {
+            try {
+                System.out.print("Ingrese el tamaño del arreglo: ");
+                index = sc.nextInt();
+
+                if (index <= 0) {
+                    throw new IllegalArgumentException("El tamaño del arreglo debe ser mayor que cero.");
+                }
+
+                inputValid = true;
+            } catch (java.util.InputMismatchException e) {
+                System.out.println("Error: Ingrese un valor numérico válido para el tamaño del arreglo.");
+
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+
         Lista ls = new Lista(index);
 
         ls.crearArreglo(index);
@@ -333,8 +352,10 @@ public class NewMain1 {
                 case 18:
                     System.exit(0);
                     break;
-
+                default:
+                    System.out.println("Opción no reconocida.");
             }
+
         }
 
     }
