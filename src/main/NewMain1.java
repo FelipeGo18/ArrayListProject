@@ -24,21 +24,24 @@ public class NewMain1 {
         Lista ls = new Lista(index);
 
         ls.crearArreglo(index);
-        
+
         String elemento;
         do {
             System.out.print("Ingrese un elemento: ");
             elemento = sc.next();
             ls.llenarArreglo(elemento, cont);
-            
+
             if (cont == index - 1) { //condicion para sacar del caso si está lleno el arreglo
+                
                 break;
+                
             }
-            
+
             cont++;
-            
+            System.out.println(cont);
+
             boolean opcionValida = false;
-            
+
             do {
                 try {
                     System.out.print("Quiere agregar otro elemento? (S/N): ");
@@ -122,6 +125,7 @@ public class NewMain1 {
                     break;
 
                 case 4:
+                    
                     break;
 
                 case 5:
@@ -191,16 +195,25 @@ public class NewMain1 {
                     int posicionEliminar = sc.nextInt();
                     posicion = posicionEliminar - 1;
                     ls.moverPosicionIzquierda(cont, posicion);
-         
+
                     cont--;
 
                     break;
 
                 case 12:
-                    System.out.print("Ingrese el elemento para eliminar la primera aparición: ");
-                    elemento = sc.next();
-                    ls.eliminarPrimeraAparicion(elemento, cont);
+           
+                    System.out.print("Ingrese el elemento para eliminar la primera aparicion: ");
+                    String elementoEliminar = sc.next();
+                    String elementoEliminado = ls.eliminarPrimeraAparicion(elementoEliminar, cont);
+
+                    if (elementoEliminado != null) {
+                        System.out.println("Se ha eliminado el elemento: " + elementoEliminado);
+                        cont--; 
+                    } else {
+                        System.out.println("El elemento no se encontró en la lista.");
+                    }
                     break;
+
 
                 case 13:
                     System.out.print("Ingrese el elemento que desea reemplazar: ");
@@ -213,8 +226,8 @@ public class NewMain1 {
                     break;
 
                 case 14:
-                    int numeroElementos = cont;
-                    System.out.println("Número de elementos en la lista: " + numeroElementos);
+                    System.out.println(cont);
+                    System.out.println("Numero de elementos en la lista: " + ls.tamanio(cont));
                     break;
 
                 case 15:

@@ -103,7 +103,7 @@ public class Lista {
     return elementoEliminado;
 }
 
-public void eliminarPrimeraAparicion(String elemento, int cont) {
+public String eliminarPrimeraAparicion(String elemento, int cont) {
     int posicion = -1;
 
     for (int i = 0; i < cont; i++) {
@@ -112,10 +112,21 @@ public void eliminarPrimeraAparicion(String elemento, int cont) {
             break; 
         }
     }
+
     if (posicion != -1) {
-        eliminarEnPosicion(posicion, cont);
-    } 
+        
+        String elementoEliminado = arreglo[posicion];
+         moverPosicionIzquierda( cont,  posicion);
+        cont--;
+
+        return elementoEliminado;
+    } else {
+        return null;
+    }
 }
+
+
+
 public void reemplazarElemento(String elementoViejo, String elementoNuevo, int cont) {
     for (int i = 0; i < cont; i++) {
         if (arreglo[i].equals(elementoViejo)) {
@@ -126,6 +137,10 @@ public void reemplazarElemento(String elementoViejo, String elementoNuevo, int c
 
 }
 
+public int tamanio(int cont){
+    return cont;
+}
+        
 public String[] crearSublista(int inicio, int fin, int cont) {
     if (inicio >= 0 && inicio < cont && fin >= 0 && fin < cont && inicio <= fin) {
         String[] sublista = new String[fin - inicio + 1];
