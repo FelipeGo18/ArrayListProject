@@ -34,7 +34,8 @@ public class NewMain1 {
                 inputValid = true;
             } catch (java.util.InputMismatchException e) {
                 System.out.println("Error: Ingrese un valor numérico válido para el tamaño del arreglo.");
-
+                
+                sc.next();
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
