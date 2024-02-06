@@ -39,7 +39,7 @@ public class NewMain1 {
 
             cont++;
             System.out.println(cont);
-
+            
             boolean opcionValida = false;
 
             do {
@@ -236,7 +236,7 @@ public class NewMain1 {
 
                     System.out.print("Ingrese el indice de fin para la sublista: ");
                     int finSublista = sc.nextInt();
-
+                    
                     String[] sublista = ls.crearSublista(inicioSublista, finSublista, cont);
                     if (sublista != null) {
                         System.out.println("Sublista creada correctamente: " + Arrays.toString(sublista));
@@ -255,7 +255,7 @@ public class NewMain1 {
                     System.out.print("Ingrese la cantidad de elementos a agregar: ");
                     int cantidadAgregar = sc.nextInt();
                     ls.aumentarTamanioLista(cantidadAgregar, cont);
-                    cont += cantidadAgregar;
+                   
                     break;
                 case 18:
                     System.exit(0);

@@ -142,18 +142,16 @@ public int tamanio(int cont){
 }
         
 public String[] crearSublista(int inicio, int fin, int cont) {
-    if (inicio >= 0 && inicio < cont && fin >= 0 && fin < cont && inicio <= fin) {
+   
         String[] sublista = new String[fin - inicio + 1];
         int sublistaIndex = 0;
 
-        for (int i = inicio; i <= fin; i++) {
+        for (int i = inicio-1 ; i < fin; i++) {
             sublista[sublistaIndex++] = arreglo[i];
         }
-
+        
         return sublista;
-    } else {
-        return null; 
-    }
+   
 }
 
 public void disminuirTamanioLista(int cantidad, int cont) {
