@@ -17,9 +17,9 @@ public class Lista {
     }
 
     public String mostrarArreglo(int cont) {
-        String salida = "";
+        String salida = "| ";
         for (int i = 0; i <= cont; i++) {
-            salida += " | " + arreglo[i] ;
+            salida += arreglo[i] + " | " ;
         }
         return salida;
     }
@@ -34,18 +34,15 @@ public class Lista {
             arreglo[i] = arreglo[i - 1];
         }
     }
-    private void moverPosicionIzquierda(int cont, int posicion){
-        for (int i = posicion; i < cont - 1; i++) {
+    public void moverPosicionIzquierda(int cont, int posicion){
+        for (int i = posicion; i < cont; i++) {
             arreglo[i] = arreglo[i + 1];
         }
     }
 
     public void agregarEnPosicion(String elemento, int posicion, int cont) {
-        if (posicion >= 0 && posicion < cont) {
             moverPosicionDerecha(cont, posicion);
             arreglo[posicion] = elemento;
-
-        }
     }
 
     public void limpiarLista(int index) {
@@ -102,8 +99,7 @@ public class Lista {
         String elementoEliminado;
         elementoEliminado = arreglo[posicion];
         moverPosicionIzquierda(posicion, cont);
-        arreglo[cont] = "";
-        //cont--; 
+        
     return elementoEliminado;
 }
 

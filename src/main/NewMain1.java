@@ -15,7 +15,7 @@ public class NewMain1 {
      */
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int opcion = 0;
+        int opcion;
         int cont = 0;
         String opcion2 = "";
 
@@ -24,18 +24,21 @@ public class NewMain1 {
         Lista ls = new Lista(index);
 
         ls.crearArreglo(index);
-
-        String elemento = "";
+        
+        String elemento;
         do {
             System.out.print("Ingrese un elemento: ");
             elemento = sc.next();
-
             ls.llenarArreglo(elemento, cont);
+            
             if (cont == index - 1) { //condicion para sacar del caso si está lleno el arreglo
                 break;
             }
-
+            
+            cont++;
+            
             boolean opcionValida = false;
+            
             do {
                 try {
                     System.out.print("Quiere agregar otro elemento? (S/N): ");
@@ -51,7 +54,6 @@ public class NewMain1 {
                 }
             } while (!opcionValida);
 
-            cont++;
         } while (opcion2.equalsIgnoreCase("s"));
 
         while (true) {
@@ -188,8 +190,10 @@ public class NewMain1 {
                     System.out.print("Ingrese la posicion para eliminar el elemento: ");
                     int posicionEliminar = sc.nextInt();
                     posicion = posicionEliminar - 1;
-                    System.out.println("se ha eliminado el elemento: " + ls.eliminarEnPosicion(posicion, cont));
+                    ls.moverPosicionIzquierda(cont, posicion);
+         
                     cont--;
+
                     break;
 
                 case 12:
