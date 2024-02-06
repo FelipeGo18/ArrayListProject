@@ -32,7 +32,7 @@ public class NewMain1 {
             ls.llenarArreglo(elemento, cont);
 
             if (cont == index - 1) { //condicion para sacar del caso si está lleno el arreglo
-                
+                cont++;
                 break;
                 
             }

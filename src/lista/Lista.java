@@ -18,7 +18,7 @@ public class Lista {
 
     public String mostrarArreglo(int cont) {
         String salida = "| ";
-        for (int i = 0; i <= cont; i++) {
+        for (int i = 0; i < cont; i++) {
             salida += arreglo[i] + " | " ;
         }
         return salida;
@@ -35,7 +35,7 @@ public class Lista {
         }
     }
     public void moverPosicionIzquierda(int cont, int posicion){
-        for (int i = posicion; i < cont; i++) {
+        for (int i = posicion; i < cont-1; i++) {
             arreglo[i] = arreglo[i + 1];
         }
     }
